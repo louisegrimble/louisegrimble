@@ -1,0 +1,42 @@
+name: Update Greeting
+
+on:
+  schedule:
+    - cron: "0 5,12,17 *   *   *" # runs every hour
+  workflow_dispatch: # allows manual run
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate greeting
+        run: |
+          TIME=$(TZ="Europe/London" date "+%H")
+
+          if ((TIME < 12)); then
+              GREETING="## Good morning 🥐"
+          elif ((TIME < 18)); then
+              GREETING="## Good afternoon 🌞"
+          else
+              GREETING="## Good evening 🌛"
+          fi
+
+          awk -v greeting="$GREETING" '
+          /<!--GREETING_START-->/ {print; print greeting; skip=1; next}
+          /<!--GREETING_END-->/ {skip=0}
+          !skip
+          ' README.md > README.tmp.md
+
+          mv README.tmp.md README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update greeting"
+          git push
