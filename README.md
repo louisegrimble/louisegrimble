@@ -6,7 +6,7 @@
 I'm Louise Grimble (she/her) and I'm a Research Software Engineer Assistant @ the University of Leeds.
 
 - 📖 I have a Masters (by Research) in Bioinformatics where I developed a genome annotation pipeline for metagenome-assembled genomes using R, Python and Linux. 
-- 🔭 **Skills**: Nextflow Pipelining | R | Delivering Training.
+- 🔭 **Skills**:    Nextflow Pipelining    |    R    |     Delivering Training.
 - 🌱 I'm currently learning about bibliometrics and developing a data analysis pipeline to generate research metrics.
 
 
