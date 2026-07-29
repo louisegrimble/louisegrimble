@@ -2,7 +2,7 @@ name: Update Greeting
 
 on:
   schedule:
-    - cron: "0 5,12,17 *   *   *" # runs every hour
+    - cron: "0 2,10,15 *   *   *" # runs every hour
   workflow_dispatch: # allows manual run
 
 jobs:
