@@ -1,5 +1,5 @@
 <!--GREETING_START-->
-## Good afternoon 🌞
+## Good morning 🥐
 <!--GREETING_END-->
 
 
